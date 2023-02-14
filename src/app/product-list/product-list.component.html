@@ -1,0 +1,34 @@
+<h2>Products</h2>
+
+<div *ngFor="let product of products">
+  <h3>
+    <!--when hover over to the link, this will display-->
+    <!--the square bracket [ ] is used for property binding, it lets us to use the property value in a template expression-->
+    <!--
+      `routerLink is used to create a link to a specific route in the application. In this case, it creates a link to the "products" route with a dynamic parameter 
+      `product.id. The square brackets [] indicate that this is a property binding, which means that the value of product.id will be evaluated dynamically at runtime.
+    
+      So when the link is clicked, Angular's router will navigate to the "products" route with the product.id parameter.
+    -->
+    <a
+      [title]="product.name + ' Details'"
+      [routerLink]="['/products', product.id]"
+      >{{ product.name }}</a
+    >
+  </h3>
+
+  <p *ngIf="product.description">Description: {{ product.description }}</p>
+
+  <button type="button" (click)="share()">Share</button>
+
+  <!--The property binding [product]="product" is used to pass the value of the product property from the parent component to the child component. The square brackets indicate that the product property is being bound to the product input property of the ProductAlertsComponent. This allows the child component to access the value of the product property and use it to display information or perform actions.-->
+
+  <app-product-alerts [product]="product" (notify)="onNotify()">
+  </app-product-alerts>
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->

@@ -1,0 +1,4 @@
+<p *ngIf="product && product.price > 700">
+  <button type="button" (click)="notify.emit()">Notify Me</button>
+  <!--define the behaviour that happens when the user clicks the button at the Parent class : ProductListComponent. It will act when the Child class : ProductAlertsComponent raises the event. Thus, in parent class, define an onNotify() method-->
+</p>

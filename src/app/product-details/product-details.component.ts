@@ -18,21 +18,21 @@ export class ProductDetailsComponent {
 
   constructor(private route: ActivatedRoute) {}
 
-  ngOninit() {
-    //First get the product id from the current route
+  ngOnInit() {
+    // First get the product id from the current route.
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('productId'));
 
-    //Find the product that correspond with the id provided in route
+    // Find the product that correspond with the id provided in route.
     this.product = products.find(
       (product) => product.id === productIdFromRoute
     );
-    //In Angular, as in JavaScript, the "===" operator is a strict equality operator, while the "==" operator is a loose equality operator.
-
-    //The main difference between them is in how they compare values:
-
-    //"===" checks if two values are of the same type and have the same value. If they are not, it returns false.
-    //"==" checks if two values are equal, even if they are of different types. It performs type coercion if necessary to compare the values. For example, "1" == 1 would return true.
-    //In general, it is recommended to use the "===" operator in Angular (and in JavaScript) to avoid unexpected type coercion and ensure that you are comparing values of the same type. However, there may be some cases where using "==" is appropriate, such as when you want to check if a value is null or undefined, since they are considered equal when using "==" but not when using "===".
   }
+  //In Angular, as in JavaScript, the "===" operator is a strict equality operator, while the "==" operator is a loose equality operator.
+
+  //The main difference between them is in how they compare values:
+
+  //"===" checks if two values are of the same type and have the same value. If they are not, it returns false.
+  //"==" checks if two values are equal, even if they are of different types. It performs type coercion if necessary to compare the values. For example, "1" == 1 would return true.
+  //In general, it is recommended to use the "===" operator in Angular (and in JavaScript) to avoid unexpected type coercion and ensure that you are comparing values of the same type. However, there may be some cases where using "==" is appropriate, such as when you want to check if a value is null or undefined, since they are considered equal when using "==" but not when using "===".
 }

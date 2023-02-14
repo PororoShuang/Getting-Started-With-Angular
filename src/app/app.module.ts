@@ -29,6 +29,7 @@ import { ShippingComponent } from './shipping/shipping.component';
       //For example, if the user navigates to the URL products/123, the router will match the URL to this route and load the ProductDetailsComponent with the productId parameter set to 123. The ProductDetailsComponent can then use the 123 ID to fetch the product data for product ID 123 and display it to the user.
       { path: 'products/:productId', component: ProductDetailsComponent },
       { path: 'cart', component: CartComponent },
+      { path: 'shipping', component: ShippingComponent },
     ]),
   ],
   declarations: [

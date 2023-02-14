@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product, products } from '../products';
+import { CartService } from '../cart.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -16,8 +17,18 @@ export class ProductDetailsComponent {
   //the constructor is used to initialize the 'route' property of the class with an instance of the 'ActivatedRoute' serivce
   //The 'private' keyword before the 'route' parameter is a TypeScript shorthand for defining the 'route' property on the class and initializing it with the 'route' parameter in the constructor
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private cartService: CartService
+  ) {}
 
+  addToCart(product: Product) {
+    //takes the current "product" as an argument
+    //use the cartService.addToCart method to add the "product" into the cart
+    this.cartService.addToCart(product);
+    //display successful message
+    window.alert('Your product has been added to the cart!');
+  }
   ngOnInit() {
     // First get the product id from the current route.
     const routeParams = this.route.snapshot.paramMap;

@@ -8,6 +8,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
       //For example, if the user navigates to the URL products/123, the router will match the URL to this route and load the ProductDetailsComponent with the productId parameter set to 123. The ProductDetailsComponent can then use the 123 ID to fetch the product data for product ID 123 and display it to the user.
 
       { path: 'products/:productId', component: ProductDetailsComponent },
+      { path: 'cart', component: CartComponent },
     ]),
   ],
   declarations: [
@@ -33,6 +35,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     ProductListComponent,
     ProductAlertsComponent,
     ProductDetailsComponent,
+    CartComponent,
   ],
   bootstrap: [AppComponent],
 })

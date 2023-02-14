@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Product } from './products';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   items: Product[] = [];
+  constructor(private http: HttpClient) {}
   //items is defined as an array type of "Product"
   //It's initialized to an empty array using square bracket
 
@@ -24,5 +26,14 @@ export class CartService {
   clearCart() {
     this.items = [];
     return this.items;
+  }
+
+  //get<{}[]>
+  //{} refers to the type/parameter
+  //[] refers to array of this type
+  getShippingPrices() {
+    return this.http.get<{ type: string; price: number }[]>(
+      '/assets/shipping.json'
+    );
   }
 }
